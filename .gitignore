@@ -23,3 +23,7 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+/src/main/java/com/zz/bill/model/account/UserInfo_LOCAL_15839.java
+/src/main/java/com/zz/bill/model/account/UserInfo_BASE_15839.java
+/src/main/java/com/zz/bill/model/account/UserInfo_REMOTE_15839.java
+/src/main/java/com/zz/bill/model/account/UserInfo_BACKUP_15839.java
