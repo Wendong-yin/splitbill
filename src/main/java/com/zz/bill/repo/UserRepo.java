@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface UserRepo extends JpaRepository<UserInfo, Integer> {
     List<UserInfo> findByAccount(String account);
+    List<UserInfo> findByNickName(String nickName);
 }

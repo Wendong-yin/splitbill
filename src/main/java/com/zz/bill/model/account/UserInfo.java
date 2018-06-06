@@ -16,7 +16,7 @@ public class UserInfo {
     @GeneratedValue
     private Integer uid;
 
-    // ❤️ 这个 account 应该是唯一的吗？
+    // ❤️ 这个 account 应该是惟一的，因为很多时候用户不记得 ID，只知道自己的 account
     private String account;
 
     private String nickName;

@@ -15,24 +15,23 @@ public class AccountController {
     @Autowired
     private ILogin login;
 
-
-//    @RequestMapping("/register/check")
-//    public JsonResult checkAccountExist(String accountName) {
-//        Boolean exist = accountService.checkExist(accountName);
-//        return JsonResult.builder().code(CommonCode.SUCC).msg("成功").data(exist).build();
-//    }
-
+    // ❤️ 我觉得 bingdingresult 检查功能太简单了，比如复杂的密码检查功能，并且放在 congtroller 代码带多了
     @PostMapping(value = "/register")
     public JsonResult register(@RequestBody UserInfo userInfo,
                                BindingResult bindingResult) throws Exception{
-        if(bindingResult.hasErrors()){
-            return JsonResult.builder()
-                    .msg(bindingResult.getAllErrors().get(0).getDefaultMessage())
-                    .code(CommonCode.ACCOUNT_NOT_EXIST.getCode())
-                    .build();
-        }
+//        if(bindingResult.hasErrors()){
+//            return JsonResult.builder()
+//                    .msg(bindingResult.getAllErrors().get(0).getDefaultMessage())
+//                    .code(CommonCode.ACCOUNT_NOT_EXIST.getCode())
+//                    .build();
+//        }
         return login.register(userInfo);
 
+    }
+
+    @PostMapping(value = "/login")
+    public JsonResult login(@RequestBody UserInfo userInfo)throws Exception{
+        return login.login(userInfo);
     }
 
     @GetMapping(value = "/hello")

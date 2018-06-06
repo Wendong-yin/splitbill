@@ -14,6 +14,7 @@ public interface IUserService {
     Boolean checkUserExist(Integer UID);
     List<UserInfo> findByNickName (String nickName);
 
+
     // 更新
     UserInfo UpdateUser(UserInfo userInfo);
 

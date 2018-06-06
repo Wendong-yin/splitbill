@@ -58,7 +58,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public List<UserInfo> findByNickName(String nickName) {
-        return null;
+        return userRepo.findByNickName(nickName);
     }
 
     @Override
