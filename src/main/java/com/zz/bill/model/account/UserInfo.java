@@ -16,8 +16,11 @@ public class UserInfo {
     @GeneratedValue
     private Integer uid;
 
-    private String nickName;
+    // ❤️ 这个 account 应该是唯一的吗？
     private String account;
+
+    private String nickName;
+
     private String authToken;
     private Timestamp createdAt;
     private Timestamp updatedAt;

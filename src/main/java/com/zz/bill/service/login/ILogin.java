@@ -7,4 +7,6 @@ public interface ILogin {
     JsonResult register (UserInfo userInfo);
 
 
+
+
 }
