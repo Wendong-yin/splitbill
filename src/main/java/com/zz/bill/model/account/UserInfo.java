@@ -1,5 +1,6 @@
 package com.zz.bill.model.account;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 
@@ -11,7 +12,6 @@ import java.sql.Timestamp;
 @Data
 @Entity
 public class UserInfo {
-
     @Id
     @GeneratedValue
     private Integer uid;
@@ -20,6 +20,8 @@ public class UserInfo {
     private String account;
 
     private String nickName;
+    // TODO 之后要修改这个密码设置，现在暂时测试一下逻辑
+    private String password;
 
     private String authToken;
     private Timestamp createdAt;
@@ -38,5 +40,6 @@ public class UserInfo {
         updatedAt = new Timestamp(System.currentTimeMillis());
     }
 
-
+    public UserInfo() {
+    }
 }

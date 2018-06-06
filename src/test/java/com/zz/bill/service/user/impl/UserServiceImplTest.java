@@ -22,4 +22,11 @@ public class UserServiceImplTest {
         Assert.assertEquals(true, result);
     }
 
+    @Test
+    public void checkAccountNameExist() {
+        boolean result = userService.checkAccountNameExist("wendong");
+        boolean result2 = userService.checkAccountNameExist("wendongggg");
+        Assert.assertEquals( true,result);
+        Assert.assertEquals(false, result2);
+    }
 }

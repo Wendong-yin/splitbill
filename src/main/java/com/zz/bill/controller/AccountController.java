@@ -23,8 +23,8 @@ public class AccountController {
 //    }
 
     @PostMapping(value = "/register")
-    public JsonResult register(UserInfo userInfo,
-                               BindingResult bindingResult){
+    public JsonResult register(@RequestBody UserInfo userInfo,
+                               BindingResult bindingResult) throws Exception{
         if(bindingResult.hasErrors()){
             return JsonResult.builder()
                     .msg(bindingResult.getAllErrors().get(0).getDefaultMessage())
@@ -35,11 +35,8 @@ public class AccountController {
 
     }
 
-    @PostMapping(value = "/hello")
+    @GetMapping(value = "/hello")
     public String hello(){
         return "hellow Spring";
     }
-
-
-
 }

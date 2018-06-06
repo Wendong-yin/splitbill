@@ -4,9 +4,6 @@ import com.zz.bill.model.JsonResult;
 import com.zz.bill.model.account.UserInfo;
 
 public interface ILogin {
-    JsonResult register (UserInfo userInfo);
-
-
-
+    JsonResult register (UserInfo userInfo) throws Exception;
 
 }

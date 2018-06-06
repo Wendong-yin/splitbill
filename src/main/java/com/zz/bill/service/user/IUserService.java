@@ -7,7 +7,7 @@ import java.util.List;
 public interface IUserService {
 
     // 添加
-    UserInfo addUser(UserInfo userInfo);
+    UserInfo addUser(UserInfo userInfo) throws Exception;
 
     // 查询
     Boolean checkAccountNameExist(String accountName);
@@ -16,4 +16,7 @@ public interface IUserService {
 
     // 更新
     UserInfo UpdateUser(UserInfo userInfo);
+
+    // 信息完整性查询
+    UserInfo checkValidity(UserInfo userInfo);
 }

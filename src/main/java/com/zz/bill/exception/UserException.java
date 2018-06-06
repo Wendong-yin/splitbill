@@ -9,4 +9,8 @@ public class UserException extends RuntimeException {
         super(commonCode.getMessage());
         this.code = commonCode.getCode();
     }
+
+    public String getCode() {
+        return code;
+    }
 }

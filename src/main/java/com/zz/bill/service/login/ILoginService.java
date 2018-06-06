@@ -14,7 +14,7 @@ public class ILoginService implements ILogin {
 
 
     @Override
-    public JsonResult register(UserInfo userInfo) {
+    public JsonResult register(UserInfo userInfo) throws Exception {
         UserInfo user = accountService.addUser(userInfo);
         return JsonResult.builder()
                 .data(user)
