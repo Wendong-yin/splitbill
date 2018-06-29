@@ -4,7 +4,9 @@ import com.zz.bill.CommonCode;
 import com.zz.bill.exception.UserException;
 import com.zz.bill.model.JsonResult;
 import com.zz.bill.entity.account.UserInfo;
+import com.zz.bill.model.token.TokenModel;
 import com.zz.bill.repo.UserRepo;
+import com.zz.bill.service.redis.tokenManager.TokenmanagerImpl;
 import com.zz.bill.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,9 @@ public class LoginService implements ILogin {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private TokenmanagerImpl tokenmanager;
 
     @Override
     public JsonResult register(UserInfo userInfo) throws Exception {
@@ -37,10 +42,13 @@ public class LoginService implements ILogin {
         if (!user_passedin.getPassword().equals(user_storedinDB.getPassword())){
             throw new UserException(CommonCode.WRONG_PWD);
         }
+        // 🍰 添加 token
+
+        TokenModel token = tokenmanager.createToken(user_storedinDB.getUid());
         return JsonResult.builder()
                 .msg(CommonCode.SUCC.getMessage())
                 .code(CommonCode.SUCC.getCode())
-                .data(userInfo)
+                .data(token) // ❤️ 把 userfino 变成了 token
                 .build();
     }
 }

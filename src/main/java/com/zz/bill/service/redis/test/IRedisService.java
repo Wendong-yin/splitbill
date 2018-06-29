@@ -1,4 +1,4 @@
-package com.zz.bill.service.redis;
+package com.zz.bill.service.redis.test;
 
 public interface IRedisService {
     void test();

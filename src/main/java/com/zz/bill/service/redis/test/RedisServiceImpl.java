@@ -1,4 +1,4 @@
-package com.zz.bill.service.redis;
+package com.zz.bill.service.redis.test;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class RedisServiceImpl implements IRedisService{
 
     @Autowired
-    private RedisTemplate<String,String> stringStringRedisTemplate;
+    private RedisTemplate<String,String> StringRedisTemplate;
 
     @Override
     public void test(){
