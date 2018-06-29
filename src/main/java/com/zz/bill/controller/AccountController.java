@@ -1,8 +1,7 @@
 package com.zz.bill.controller;
 
-import com.zz.bill.CommonCode;
 import com.zz.bill.model.JsonResult;
-import com.zz.bill.model.account.UserInfo;
+import com.zz.bill.entity.account.UserInfo;
 import com.zz.bill.service.login.ILogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;

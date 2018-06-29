@@ -2,11 +2,8 @@ package com.zz.bill.config.interceptor;
 
 import com.zz.bill.CommonCode;
 import com.zz.bill.config.Token;
-import com.zz.bill.entity.account.User;
 import com.zz.bill.exception.UserException;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;

@@ -1,6 +1,6 @@
 package com.zz.bill.service.user;
 
-import com.zz.bill.model.account.UserInfo;
+import com.zz.bill.entity.account.UserInfo;
 
 import java.util.List;
 

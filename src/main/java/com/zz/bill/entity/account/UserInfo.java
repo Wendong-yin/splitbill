@@ -1,4 +1,4 @@
-package com.zz.bill.model.account;
+package com.zz.bill.entity.account;
 
 import lombok.Builder;
 import lombok.Data;
