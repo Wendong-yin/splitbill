@@ -16,4 +16,14 @@ public class RedisServiceImpl implements IRedisService{
 
     }
 
+    @Override
+    public String createToken(String userid) {
+        return null;
+    }
+
+    @Override
+    public String checkToken(String authToken) {
+        return null;
+    }
+
 }
