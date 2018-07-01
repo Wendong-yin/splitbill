@@ -1,12 +1,12 @@
 package com.zz.bill.repo;
 
 
-import com.zz.bill.entity.account.UserInfo;
+import com.zz.bill.entity.account.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface UserRepo extends JpaRepository<UserInfo, Integer> {
-    List<UserInfo> findByAccount(String account);
-    List<UserInfo> findByNickName(String nickName);
+public interface UserRepo extends JpaRepository<User, Integer> {
+    List<User> findByAccount(String account);
+    List<User> findByNickName(String nickName);
 }

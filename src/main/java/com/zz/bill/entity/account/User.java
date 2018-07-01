@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-public class UserInfo {
+public class User {
     @Id
     @GeneratedValue
     private Integer uid;
@@ -40,6 +40,6 @@ public class UserInfo {
         updatedAt = new Timestamp(System.currentTimeMillis());
     }
 
-    public UserInfo() {
+    public User() {
     }
 }

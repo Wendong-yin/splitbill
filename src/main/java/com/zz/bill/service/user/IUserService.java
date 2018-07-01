@@ -1,23 +1,23 @@
 package com.zz.bill.service.user;
 
-import com.zz.bill.entity.account.UserInfo;
+import com.zz.bill.entity.account.User;
 
 import java.util.List;
 
 public interface IUserService {
 
     // 添加
-    UserInfo addUser(UserInfo userInfo) throws Exception;
+    User addUser(User user) throws Exception;
 
     // 查询
     Boolean checkAccountNameExist(String accountName);
     Boolean checkUserExist(Integer UID);
-    List<UserInfo> findByNickName (String nickName);
+    List<User> findByNickName (String nickName);
 
 
     // 更新
-    UserInfo UpdateUser(UserInfo userInfo);
+    User UpdateUser(User user);
 
     // 信息完整性查询
-    UserInfo checkValidity(UserInfo userInfo);
+    User checkValidity(User user);
 }

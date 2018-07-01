@@ -1,8 +1,11 @@
 package com.zz.bill.config.interceptor;
 
 import com.zz.bill.CommonCode;
-import com.zz.bill.config.Token;
+import com.zz.bill.entity.account.User;
 import com.zz.bill.exception.UserException;
+import com.zz.bill.repo.UserRepo;
+import com.zz.bill.service.redis.tokenManager.TokenmanagerImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -14,20 +17,31 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
     private static final String AUTH_HEADER = "X-Auth";
 
+    @Autowired
+    private TokenmanagerImpl manager;
+
+    @Autowired
+    private UserRepo repo;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String token = request.getHeader(AUTH_HEADER);
 
-        // ❤️ 如果获取用户名呢？
-        // TODO token 验证
-        if (token.equals(Token.Tom.getToken()))
-        {
-            return true;
-        }else{
+
+        String authorization = request.getHeader(AUTH_HEADER);
+
+        // 验证 token
+        if (!manager.checkToken(authorization)) {
             throw new UserException(CommonCode.AUTH_FORBIDDEN);
         }
+
+        // 用 token 换取用户
+        Integer userId = manager.getUserID(authorization);
+        User user = repo.findOne(userId);
+        System.out.println(user.getAccount());
+
+        return true;
+
     }
-    // 返回 true ，系统认为是 okay 的，可以继续运行
-    // 返回 false，会出问题
+
 
 }

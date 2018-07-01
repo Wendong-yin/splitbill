@@ -1,6 +1,5 @@
 package com.zz.bill.service.redis.tokenManager;
 
-import com.zz.bill.model.token.TokenModel;
 
 public interface ITokenManager {
 
@@ -9,25 +8,24 @@ public interface ITokenManager {
      * @param userId 指定用户的 id
      * @return 生成的 token
      */
-    public TokenModel createToken (Integer userId);
+    public String createToken (Integer userId);
 
 
 
     /**
      * 检查 token 是否有效
-     * @param model token
+     * @param  token
      * @return 是否有效
      */
-    public boolean checkToken (TokenModel model);
-
+    public boolean checkToken (String token);
 
 
     /**
-     * 从字符串中解析 token
-     * @param authentication 加密后的字符串
+     * 加密后的字符串
+     * @param token
      * @return
      */
-    public TokenModel getToken (String authentication);
+    public Integer getUserID(String token);
 
 
 

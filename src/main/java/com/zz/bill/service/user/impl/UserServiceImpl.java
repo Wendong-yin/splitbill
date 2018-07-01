@@ -2,7 +2,7 @@ package com.zz.bill.service.user.impl;
 
 import com.zz.bill.CommonCode;
 import com.zz.bill.exception.UserException;
-import com.zz.bill.entity.account.UserInfo;
+import com.zz.bill.entity.account.User;
 import com.zz.bill.repo.UserRepo;
 import com.zz.bill.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +18,17 @@ public class UserServiceImpl implements IUserService {
     private UserRepo userRepo;
 
     @Override
-    public UserInfo checkValidity(UserInfo userInfo) {
-        if (userInfo.getAccount() == null || userInfo.getPassword() == null){
+    public User checkValidity(User user) {
+        if (user.getAccount() == null || user.getPassword() == null){
             throw new UserException(CommonCode.PARAM_ERR);
         }
-        return userInfo;
+        return user;
     }
 
     @Override
     public Boolean checkUserExist(Integer UID) {
-        UserInfo userInfo = userRepo.findOne(UID);
-        if (userInfo == null){
+        User user = userRepo.findOne(UID);
+        if (user == null){
             return false; // 用户不存在
         }else{
             return true;
@@ -37,7 +37,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public Boolean checkAccountNameExist(String accountName) {
-        List<UserInfo> users = userRepo.findByAccount(accountName);
+        List<User> users = userRepo.findByAccount(accountName);
         if (users.size() > 0){
             return true; // 用户存在
         }else{
@@ -46,8 +46,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public UserInfo addUser(UserInfo userInfo) throws Exception {
-        UserInfo user = checkValidity(userInfo);
+    public User addUser(User userInfo) throws Exception {
+        User user = checkValidity(userInfo);
         // ❤️ 为什么会有大黄线？？
         if (checkAccountNameExist(user.getAccount()) == true){
             throw new UserException(CommonCode.ACCOUNT_ALREADY_EXIST);
@@ -57,12 +57,12 @@ public class UserServiceImpl implements IUserService {
 
 
     @Override
-    public List<UserInfo> findByNickName(String nickName) {
+    public List<User> findByNickName(String nickName) {
         return userRepo.findByNickName(nickName);
     }
 
     @Override
-    public UserInfo UpdateUser(UserInfo userInfo) {
+    public User UpdateUser(User user) {
         return null;
     }
 

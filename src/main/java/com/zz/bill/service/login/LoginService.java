@@ -3,8 +3,8 @@ package com.zz.bill.service.login;
 import com.zz.bill.CommonCode;
 import com.zz.bill.exception.UserException;
 import com.zz.bill.model.JsonResult;
-import com.zz.bill.entity.account.UserInfo;
-import com.zz.bill.model.token.TokenModel;
+import com.zz.bill.entity.account.User;
+import com.zz.bill.model.account.UserInfo;
 import com.zz.bill.repo.UserRepo;
 import com.zz.bill.service.redis.tokenManager.TokenmanagerImpl;
 import com.zz.bill.service.user.IUserService;
@@ -25,26 +25,36 @@ public class LoginService implements ILogin {
     private TokenmanagerImpl tokenmanager;
 
     @Override
-    public JsonResult register(UserInfo userInfo) throws Exception {
-        UserInfo user = userService.addUser(userInfo);
+    public JsonResult register(User user) throws Exception {
+        userService.addUser(user);
+
+        String token = tokenmanager.createToken(user.getUid());
+
+        UserInfo userInfo = UserInfo.builder()
+                .id(user.getUid())
+                .account(user.getAccount())
+                .token(token)
+                .build();
+
         return JsonResult.builder()
                 .code(CommonCode.SUCC.getCode())
                 .msg(CommonCode.SUCC.getMessage())
-                .data(user)
+                .data(userInfo)
                 .build();
     }
 
     @Override
-    public JsonResult login(UserInfo userInfo) throws Exception {
-        UserInfo user_passedin = userService.checkValidity(userInfo);
-        // ❤️ 像这种只有一行的代码，用写到 UserService 层中吗？
-        UserInfo user_storedinDB = userRepo.findByAccount(user_passedin.getAccount()).get(0);
+    public JsonResult login(User user) throws Exception {
+        User user_passedin = userService.checkValidity(user);
+
+
+        User user_storedinDB = userRepo.findByAccount(user_passedin.getAccount()).get(0);
         if (!user_passedin.getPassword().equals(user_storedinDB.getPassword())){
             throw new UserException(CommonCode.WRONG_PWD);
         }
-        // 🍰 添加 token
 
-        TokenModel token = tokenmanager.createToken(user_storedinDB.getUid());
+        String token = tokenmanager.createToken(user_storedinDB.getUid());
+
         return JsonResult.builder()
                 .msg(CommonCode.SUCC.getMessage())
                 .code(CommonCode.SUCC.getCode())
