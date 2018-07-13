@@ -3,10 +3,10 @@ package com.zz.bill.service.login;
 import com.zz.bill.CommonCode;
 import com.zz.bill.exception.UserException;
 import com.zz.bill.model.JsonResult;
-import com.zz.bill.entity.account.User;
+import com.zz.bill.entity.User;
 import com.zz.bill.model.account.UserInfo;
 import com.zz.bill.repo.UserRepo;
-import com.zz.bill.service.redis.tokenManager.TokenmanagerImpl;
+import com.zz.bill.service.redis.token.TokenManagerImpl;
 import com.zz.bill.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class LoginService implements ILogin {
     private UserRepo userRepo;
 
     @Autowired
-    private TokenmanagerImpl tokenmanager;
+    private TokenManagerImpl tokenmanager;
 
     @Override
     public JsonResult register(User user) throws Exception {

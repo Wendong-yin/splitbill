@@ -1,7 +1,7 @@
 package com.zz.bill.service.login;
 
 import com.zz.bill.model.JsonResult;
-import com.zz.bill.entity.account.User;
+import com.zz.bill.entity.User;
 
 public interface ILogin {
     JsonResult register (User user) throws Exception;

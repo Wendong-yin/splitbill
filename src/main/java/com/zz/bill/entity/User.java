@@ -1,8 +1,9 @@
-package com.zz.bill.entity.account;
+package com.zz.bill.entity;
 
 import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,6 +12,7 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
+@DynamicUpdate
 public class User {
     @Id
     @GeneratedValue
@@ -27,19 +29,4 @@ public class User {
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
-
-    @PrePersist
-    public void prePresist(){
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        createdAt = timestamp;
-        updatedAt = timestamp;
-    }
-
-    @PreUpdate
-    public void preUpdate(){
-        updatedAt = new Timestamp(System.currentTimeMillis());
-    }
-
-    public User() {
-    }
 }

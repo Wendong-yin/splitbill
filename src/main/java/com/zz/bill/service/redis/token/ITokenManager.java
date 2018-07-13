@@ -1,4 +1,4 @@
-package com.zz.bill.service.redis.tokenManager;
+package com.zz.bill.service.redis.token;
 
 
 public interface ITokenManager {

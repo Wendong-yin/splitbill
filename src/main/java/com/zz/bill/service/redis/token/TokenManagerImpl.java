@@ -1,4 +1,4 @@
-package com.zz.bill.service.redis.tokenManager;
+package com.zz.bill.service.redis.token;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -8,7 +8,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 @Component
-public class TokenmanagerImpl implements ITokenManager {
+public class TokenManagerImpl implements ITokenManager {
     @Autowired
     private RedisTemplate<String,String> redis;
 

@@ -1,7 +1,7 @@
 package com.zz.bill.repo;
 
 
-import com.zz.bill.entity.account.User;
+import com.zz.bill.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

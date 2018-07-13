@@ -1,14 +1,14 @@
-package com.zz.bill.service.redis.tokenManager;
+package com.zz.bill.service.redis.token;
 
 import com.zz.bill.BillApplicationTests;
 import org.junit.Test;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class TokenmanagerImplTest extends BillApplicationTests {
+public class TokenManagerImplTest extends BillApplicationTests {
 
     @Autowired
-    TokenmanagerImpl tokenmanager;
+    TokenManagerImpl tokenmanager;
 
 
 

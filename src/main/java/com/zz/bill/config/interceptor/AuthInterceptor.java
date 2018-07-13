@@ -1,10 +1,10 @@
 package com.zz.bill.config.interceptor;
 
 import com.zz.bill.CommonCode;
-import com.zz.bill.entity.account.User;
+import com.zz.bill.entity.User;
 import com.zz.bill.exception.UserException;
 import com.zz.bill.repo.UserRepo;
-import com.zz.bill.service.redis.tokenManager.TokenmanagerImpl;
+import com.zz.bill.service.redis.token.TokenManagerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -18,7 +18,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
     private static final String AUTH_HEADER = "X-Auth";
 
     @Autowired
-    private TokenmanagerImpl manager;
+    private TokenManagerImpl manager;
 
     @Autowired
     private UserRepo repo;
@@ -40,7 +40,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
         System.out.println(user.getAccount());
 
         return true;
-
     }
 
 
