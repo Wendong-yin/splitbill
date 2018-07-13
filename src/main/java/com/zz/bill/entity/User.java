@@ -12,6 +12,7 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
+@DynamicUpdate
 public class User {
     @Id
     @GeneratedValue
@@ -27,5 +28,17 @@ public class User {
     private String authToken;
     private Timestamp createdAt;
     private Timestamp updatedAt;
+
+    @PrePersist
+    public void prePresist(){
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        createdAt = timestamp;
+        updatedAt = timestamp;
+    }
+
+    @PreUpdate
+    public void preUpdate(){
+        updatedAt = new Timestamp(System.currentTimeMillis());
+    }
 
 }

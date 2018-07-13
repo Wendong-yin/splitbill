@@ -8,4 +8,9 @@ public interface ISpentService {
 
 
     JsonResult createSpend (Spend spend);
+
+    JsonResult getOneSpend(Integer spendID);
+
+    JsonResult getAllSpend(Integer eventID);
+
 }
