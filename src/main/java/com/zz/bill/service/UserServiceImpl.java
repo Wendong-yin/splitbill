@@ -1,10 +1,9 @@
-package com.zz.bill.service.user.impl;
+package com.zz.bill.service;
 
 import com.zz.bill.CommonCode;
 import com.zz.bill.exception.UserException;
 import com.zz.bill.entity.User;
 import com.zz.bill.repo.UserRepo;
-import com.zz.bill.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

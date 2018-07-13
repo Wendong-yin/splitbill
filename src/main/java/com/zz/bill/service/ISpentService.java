@@ -1,4 +1,4 @@
-package com.zz.bill.service.spend;
+package com.zz.bill.service;
 
 import com.zz.bill.entity.Spend;
 import com.zz.bill.model.JsonResult;

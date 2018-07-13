@@ -4,7 +4,7 @@ import com.zz.bill.CommonCode;
 import com.zz.bill.entity.User;
 import com.zz.bill.exception.UserException;
 import com.zz.bill.repo.UserRepo;
-import com.zz.bill.service.redis.token.TokenManagerImpl;
+import com.zz.bill.service.TokenManagerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;

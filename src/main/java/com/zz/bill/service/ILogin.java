@@ -1,4 +1,4 @@
-package com.zz.bill.service.login;
+package com.zz.bill.service;
 
 import com.zz.bill.model.JsonResult;
 import com.zz.bill.entity.User;
