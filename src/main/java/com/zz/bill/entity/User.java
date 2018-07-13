@@ -12,7 +12,6 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-@DynamicUpdate
 public class User {
     @Id
     @GeneratedValue

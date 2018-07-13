@@ -10,4 +10,5 @@ public class JsonResult {
     private String code;
     private String msg;
     private Object data;
+
 }
