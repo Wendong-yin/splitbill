@@ -2,7 +2,7 @@ package com.zz.bill.controller;
 
 import com.zz.bill.entity.Spend;
 import com.zz.bill.model.JsonResult;
-import com.zz.bill.service.spend.ISpentService;
+import com.zz.bill.service.spend.ISpentBaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ public class SpendController {
 
 
     @Autowired
-    ISpentService spentService;
+    ISpentBaseService spentService;
 
     @PostMapping("/create")
     public JsonResult createSpend(@RequestBody Spend spend){

@@ -1,6 +1,6 @@
 package com.zz.bill.service;
 
-import com.zz.bill.model.CalculatorResult;
+import com.zz.bill.model.calculator.CalculatorResult;
 
 public interface ICalculatorService {
     CalculatorResult calculateResult(Integer userID);

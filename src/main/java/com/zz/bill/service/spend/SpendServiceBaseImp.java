@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SpendServiceImp implements ISpentService {
+public class SpendServiceBaseImp implements ISpentBaseService {
 
     @Autowired
     SpendRepo spendRepo;
