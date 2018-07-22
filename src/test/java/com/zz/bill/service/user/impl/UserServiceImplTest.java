@@ -1,6 +1,6 @@
 package com.zz.bill.service.user.impl;
 
-import com.zz.bill.service.UserServiceImpl;
+import com.zz.bill.service.user.UserServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

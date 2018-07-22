@@ -1,11 +1,12 @@
-package com.zz.bill.service;
+package com.zz.bill.service.user;
 
-import com.zz.bill.CommonCode;
+import com.zz.bill.util.CommonCode;
 import com.zz.bill.exception.UserException;
 import com.zz.bill.model.JsonResult;
 import com.zz.bill.entity.User;
 import com.zz.bill.model.account.UserInfo;
 import com.zz.bill.repo.UserRepo;
+import com.zz.bill.service.redis.TokenManagerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

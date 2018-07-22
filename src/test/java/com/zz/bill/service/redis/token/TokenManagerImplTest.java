@@ -1,7 +1,7 @@
 package com.zz.bill.service.redis.token;
 
 import com.zz.bill.BillApplicationTests;
-import com.zz.bill.service.TokenManagerImpl;
+import com.zz.bill.service.redis.TokenManagerImpl;
 import org.junit.Test;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;

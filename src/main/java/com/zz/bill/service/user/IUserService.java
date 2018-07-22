@@ -1,4 +1,4 @@
-package com.zz.bill.service;
+package com.zz.bill.service.user;
 
 import com.zz.bill.entity.User;
 

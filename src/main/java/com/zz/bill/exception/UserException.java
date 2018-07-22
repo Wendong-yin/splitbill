@@ -1,6 +1,6 @@
 package com.zz.bill.exception;
 
-import com.zz.bill.CommonCode;
+import com.zz.bill.util.CommonCode;
 
 public class UserException extends RuntimeException {
     private String code;

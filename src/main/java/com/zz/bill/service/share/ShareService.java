@@ -1,13 +1,11 @@
-package com.zz.bill.service;
+package com.zz.bill.service.share;
 
 import com.zz.bill.entity.Share;
 import com.zz.bill.entity.Spend;
 import com.zz.bill.entity.User;
 import com.zz.bill.model.JsonResult;
 import com.zz.bill.repo.ShareRepo;
-import com.zz.bill.util.BigDecimalUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisHash;
 
 import java.math.BigDecimal;
 import java.util.LinkedList;

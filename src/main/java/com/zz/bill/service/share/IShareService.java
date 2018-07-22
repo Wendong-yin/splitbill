@@ -1,4 +1,4 @@
-package com.zz.bill.service;
+package com.zz.bill.service.share;
 
 import com.zz.bill.entity.Share;
 import com.zz.bill.entity.Spend;

@@ -1,4 +1,4 @@
-package com.zz.bill;
+package com.zz.bill.util;
 
 public enum CommonCode {
     SUCC("S000","成功"),

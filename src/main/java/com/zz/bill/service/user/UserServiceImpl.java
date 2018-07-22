@@ -1,6 +1,6 @@
-package com.zz.bill.service;
+package com.zz.bill.service.user;
 
-import com.zz.bill.CommonCode;
+import com.zz.bill.util.CommonCode;
 import com.zz.bill.exception.UserException;
 import com.zz.bill.entity.User;
 import com.zz.bill.repo.UserRepo;
@@ -11,7 +11,6 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements IUserService {
-
 
     @Autowired
     private UserRepo userRepo;
@@ -53,7 +52,6 @@ public class UserServiceImpl implements IUserService {
         }
         return userRepo.save(user);
     }
-
 
     @Override
     public List<User> findByNickName(String nickName) {

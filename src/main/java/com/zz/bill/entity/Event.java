@@ -1,33 +1,33 @@
 package com.zz.bill.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.zz.bill.util.EventStatus;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NonNull;
-import org.hibernate.annotations.DynamicUpdate;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
-
 @Data
+@Builder
 @Entity
-@DynamicUpdate
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class User {
+public class Event {
+
     @Id
     @GeneratedValue
-    private Integer uid;
+    private Integer id;
 
-    // ❤️ 这个 account 应该是惟一的，因为很多时候用户不记得 ID，只知道自己的 account
-    private String account;
+    private String eventName;
 
-    private String nickName;
-    // TODO 之后要修改这个密码设置，现在暂时测试一下逻辑
-    private String password;
+    private EventStatus status = EventStatus.ACTIVE;
 
-    private String authToken;
+    private  Integer creatorUid;
+
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
@@ -42,7 +42,5 @@ public class User {
     public void preUpdate(){
         updatedAt = new Timestamp(System.currentTimeMillis());
     }
-
-
 
 }

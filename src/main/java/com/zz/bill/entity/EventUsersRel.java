@@ -1,34 +1,24 @@
 package com.zz.bill.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 import java.sql.Timestamp;
-
 
 @Entity
 @Data
-@DynamicUpdate
-public class Spend {
+@NoArgsConstructor
+public class EventUsersRel {
 
-    @GeneratedValue
     @Id
-    private Integer spendId;
+    @GeneratedValue
+    private Integer id;
 
-    private Integer eventId;
-    private String spendName;
-    private String description;
-
-    @NotNull(message = "必须输入金额")
-    private BigDecimal amount;
-
-    @NotNull(message = "prepay 用户 id 不能为空")
-    private Integer prepayUserID;
-
-    private String status;
+    private Integer eventID;
+    private Integer uid;
 
     private Timestamp createdAt;
     private Timestamp updatedAt;
@@ -43,5 +33,10 @@ public class Spend {
     @PreUpdate
     public void preUpdate(){
         updatedAt = new Timestamp(System.currentTimeMillis());
+    }
+
+    public EventUsersRel(Integer eventID, Integer uid) {
+        this.eventID = eventID;
+        this.uid = uid;
     }
 }

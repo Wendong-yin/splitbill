@@ -1,4 +1,4 @@
-package com.zz.bill.service;
+package com.zz.bill.service.redis;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,11 +1,10 @@
 package com.zz.bill.exception;
 
-import com.zz.bill.CommonCode;
+import com.zz.bill.util.CommonCode;
 import com.zz.bill.model.JsonResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 @ControllerAdvice
 public class ExceptionHander {

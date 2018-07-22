@@ -22,6 +22,9 @@ public class Share {
 
     BigDecimal amount;
 
+    BigDecimal shouldPay;
+    BigDecimal shouldReceive;
+
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
