@@ -1,7 +1,6 @@
 package com.zz.bill.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,24 +8,21 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-@Entity
 @Data
-@Builder
 @AllArgsConstructor
-public class Share {
+@NoArgsConstructor
+@Entity
+public class Result {
 
     @Id
     @GeneratedValue
-    Integer shareID;
+    private Integer ResultID;
+    private Integer eventID;
 
-    Integer spendID;
+    private Integer fromUserID;
+    private Integer toUserID;
 
-    Integer userID;
-
-    BigDecimal amount;
-
-    BigDecimal shouldPay;
-    BigDecimal shouldReceive;
+    private BigDecimal amount;
 
     Timestamp createdAt;
     Timestamp updatedAt;
@@ -43,6 +39,19 @@ public class Share {
         updatedAt = new Timestamp(System.currentTimeMillis());
     }
 
-    public Share() {
+
+
+    public Result(Integer fromUserID, Integer toUserID, BigDecimal amount) {
+        this.fromUserID = fromUserID;
+        this.toUserID = toUserID;
+        this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "form:" + fromUserID +
+                " to" + toUserID +
+                " " + amount;
     }
 }

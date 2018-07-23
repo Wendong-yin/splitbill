@@ -52,4 +52,10 @@ public class ShareBaseServiceImpl implements IShareBaseService {
     public Share getbyshareId(Integer shareID) {
         return shareRepo.getOne(shareID);
     }
+
+    @Override
+    public List<Share> findSharesBySpendID(Integer SpendID) {
+        return shareRepo.findBySpendID(SpendID);
+    }
+
 }
