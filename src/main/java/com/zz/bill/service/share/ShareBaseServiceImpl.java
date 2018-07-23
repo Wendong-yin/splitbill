@@ -24,7 +24,6 @@ public class ShareBaseServiceImpl implements IShareBaseService {
     // 如果后端计算，那么用户可能不能得到实时的结果，存入速度很慢。
     @Override
     public List<Share> add(List<Integer> uid, Spend spend) {
-        // TODO 需要得到活动的人数
         BigDecimal sharedNum = BigDecimal.valueOf(uid.size());
         BigDecimal avgAmout = spend.getAmount().divide(sharedNum,2,BigDecimal.ROUND_HALF_UP);
 

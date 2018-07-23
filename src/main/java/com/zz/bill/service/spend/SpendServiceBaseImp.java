@@ -16,7 +16,7 @@ public class SpendServiceBaseImp implements ISpentBaseService {
     SpendRepo spendRepo;
 
     @Override
-    public JsonResult createSpend(Spend spend) {
+    public Spend createSpend(Spend spend) {
 
 
         // TODO 判断 eventID 是否存在
@@ -27,27 +27,24 @@ public class SpendServiceBaseImp implements ISpentBaseService {
         // TODO 判断prePay User 是否和 spend 相关联
 
         // 如果关联
-//      spendRepo.save(spend);
+        //      spendRepo.save(spend);
 
-        return JsonResult.builder().msg(CommonCode.SUCC.getMessage())
-                .code(CommonCode.SUCC.getCode())
-                .data(spendRepo.save(spend))
-                .build();
+        return spendRepo.save(spend);
     }
 
     @Override
-    public JsonResult getOneSpend(Integer spendID) {
+    public Spend getOneSpend(Integer spendID) {
+        // TODO 查找失败怎么办
         Spend result = spendRepo.findOne(spendID);
         if (result == null){
-            return JsonResult.createByErrorMsg("无法找到此条开销");
+            return null;
         }
-        return JsonResult.createBySuccess(result);
+        return result;
 
     }
 
     @Override
-    public JsonResult getAllSpend(Integer eventID) {
-        List<Spend> result = spendRepo.findByeventId(eventID);
-        return JsonResult.createBySuccess(result);
+    public List<Spend> getAllSpend(Integer eventID) {
+        return spendRepo.findByeventId(eventID);
     }
 }

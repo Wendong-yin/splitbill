@@ -3,12 +3,14 @@ package com.zz.bill.service.spend;
 import com.zz.bill.entity.Spend;
 import com.zz.bill.model.JsonResult;
 
+import java.util.List;
+
 public interface ISpentBaseService {
 
-    JsonResult createSpend (Spend spend);
+    Spend createSpend (Spend spend);
 
-    JsonResult getOneSpend(Integer spendID);
+    Spend getOneSpend(Integer spendID);
 
-    JsonResult getAllSpend(Integer eventID);
+    List<Spend> getAllSpend(Integer eventID);
 
 }
