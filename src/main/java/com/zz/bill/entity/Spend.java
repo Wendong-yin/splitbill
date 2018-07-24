@@ -1,5 +1,6 @@
 package com.zz.bill.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -25,6 +26,7 @@ public class Spend {
     @NotNull(message = "必须输入金额")
     private BigDecimal amount;
 
+    @ApiModelProperty(value = "是谁先垫付了这个 spend，传入他的 id")
     @NotNull(message = "prepay 用户 id 不能为空")
     private Integer prepayUserID;
 

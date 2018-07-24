@@ -6,9 +6,11 @@ import com.zz.bill.service.user.ILogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @RestController
 @RequestMapping(value = "/account/{version}")
+@EnableSwagger2// ❤️
 public class AccountController {
 
     @Autowired

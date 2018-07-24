@@ -5,6 +5,7 @@ import com.zz.bill.entity.User;
 import com.zz.bill.model.JsonResult;
 import com.zz.bill.service.event.EventBaseServiceImpl;
 import com.zz.bill.service.event.EventServiceImpl;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +33,7 @@ public class EventController {
     }
 
     @GetMapping("/getUsers")
+    @ApiOperation(value = "参加该 event 的用户们")
     public JsonResult getUsers(@RequestParam Integer eventId){
         return eventService.getEventUsers(eventId);
     }
